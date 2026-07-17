@@ -1,0 +1,919 @@
+/* ==========================================================
+   ISAAC PORTAL & CURRÍCULO
+   style.css (Arquivo Único Unificado - Versão Purple & Gold Dark)
+   ========================================================== */
+
+/* ==========================================================
+   DESIGN TOKENS (Sua nova paleta de cores)
+   ========================================================== */
+:root {
+  /* Purple */
+  --purple-deep: #7030a0;
+  --purple-strong: #7d2ba6;
+  --purple-mid: #8c25ac;
+  --purple-light: #a351bd;
+  --purple-pale: #d9b8e8;
+  --purple-bright: #a91ab9;
+
+  /* Gold */
+  --gold: #c2a37a;
+  --gold-dark: #a06f30;
+
+  /* Gray */
+  --gray-bg: #171717;
+  --gray-panel: #232323;
+  --gray-line: #3a3a3a;
+
+  /* Text */
+  --ink: #f5f5f5;
+  --ink-secondary: #bdbdbd;
+}
+
+/* ==========================================================
+   RESET & GLOBAL STYLES
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--gray-bg);
+  position: relative;
+}
+
+body.resume-body {
+  background:
+    linear-gradient(rgba(112, 48, 160, 0.08), rgba(112, 48, 160, 0.08)),
+    repeating-linear-gradient(
+      45deg,
+      var(--gray-bg),
+      var(--gray-bg) 22px,
+      var(--gray-panel) 22px,
+      var(--gray-panel) 44px
+    );
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--purple-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--purple-pale);
+}
+
+a:visited {
+  color: var(--purple-pale);
+}
+
+/* ---------- voltar ao portal (currículo) ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  width: fit-content;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: var(--purple-pale);
+  background: rgba(112, 48, 160, 0.85);
+  border: 2px outset var(--purple-light);
+}
+
+.back-link:hover {
+  background: var(--purple-mid);
+}
+
+.back-link:visited {
+  color: var(--purple-pale);
+}
+
+/* ==========================================================
+   VIDEO / BACKGROUND
+   ========================================================== */
+.video-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inverted-colors: invert(100%);
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.65
+  ); /* Escurecido um pouco mais para o Dark Mode */
+}
+
+/* ==========================================================
+   BARRA SUPERIOR & INFO STRIPS
+   ========================================================== */
+.info-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 8px;
+  background: rgba(112, 48, 160, 0.85);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  color: var(--purple-pale);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
+.info-strip strong {
+  color: var(--gold);
+}
+
+.status-online {
+  color: #66ff66;
+  font-weight: bold;
+}
+
+/* contato rápido (variante do info-strip para currículo) */
+.resume-contact-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 8px;
+  background: rgba(112, 48, 160, 0.85);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  color: var(--purple-pale);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
+.resume-contact-strip strong {
+  color: var(--gold);
+}
+
+/* ==========================================================
+   HEADER & NAVIGATION
+   ========================================================== */
+header {
+  background: rgba(35, 35, 35, 0.88); /* Ajustado para cinza escuro */
+  backdrop-filter: blur(4px);
+  border-bottom: 3px solid var(--purple-bright);
+  box-shadow: 0 2px 0 var(--purple-mid);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  margin: 0;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--purple-bright);
+  text-shadow: 2px 2px 0 var(--gold);
+}
+
+.logo-tagline {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--purple-light);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.visitor-chip {
+  padding: 8px 14px;
+  text-align: center;
+  background: var(--gray-bg);
+  border: 2px inset var(--gray-line);
+  font-family: "Courier New", monospace;
+}
+
+.visitor-chip span {
+  display: block;
+  font-size: 10px;
+  color: var(--purple-light);
+  font-weight: bold;
+}
+
+.visitor-chip strong {
+  font-size: 16px;
+  color: var(--gold);
+}
+
+nav {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 37, 172, 0.9),
+    /* --purple-mid */ rgba(112, 48, 160, 0.9) /* --purple-deep */
+  );
+  border-bottom: 3px solid var(--gold);
+}
+
+nav ul {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav li {
+  display: flex;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-right: 1px solid var(--purple-light);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+nav a:hover {
+  background: var(--gold);
+  color: var(--purple-deep);
+}
+
+nav a:visited {
+  color: white;
+}
+
+/* ==========================================================
+   HERO SECTIONS
+   ========================================================== */
+
+/* Hero Principal Portal */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+  width: auto;
+}
+
+.hero img {
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-family: "Courier New", monospace;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.hero h2 {
+  margin: 20px 0;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 38px;
+  color: white;
+  text-shadow: 3px 3px 0 var(--purple-deep);
+}
+
+.hero .sub {
+  margin-bottom: 28px;
+  color: var(--purple-pale);
+  font-weight: bold;
+}
+
+.btn-explore {
+  display: inline-block;
+  padding: 12px 34px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+  border: 3px outset var(--gold);
+  color: var(--purple-deep);
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 0 #6e4c22; /* Sombra baseada no gold-dark */
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.btn-explore:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #dfcbb3, var(--gold));
+}
+
+/* Hero Currículo */
+.resume-hero {
+  padding: 46px 20px 36px;
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+}
+
+.resume-avatar {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--purple-bright), var(--purple-mid));
+  border: 3px outset var(--gold);
+  color: white;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 30px;
+  text-shadow: 2px 2px 0 var(--purple-deep);
+}
+.resume-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.resume-avatar video {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.resume-hero h2 {
+  margin: 0 0 6px;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 34px;
+  color: white;
+  text-shadow: 3px 3px 0 var(--purple-deep);
+}
+
+.resume-hero .sub {
+  color: var(--purple-pale);
+  font-weight: bold;
+}
+
+.resume-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-print {
+  display: inline-block;
+  padding: 10px 26px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+  border: 3px outset var(--gold);
+  color: var(--purple-deep);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #6e4c22;
+  font-family: inherit;
+  transition: transform 0.2s;
+}
+
+.btn-print:hover {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   MAIN & GENERAL PANELS
+   ========================================================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 16px 50px;
+}
+
+.panel {
+  margin-bottom: 24px;
+  background: rgba(35, 35, 35, 0.9); /* Ajustado para painel escuro */
+  backdrop-filter: blur(4px);
+  border: 2px solid var(--purple-bright);
+  box-shadow: 4px 4px 0 var(--purple-mid);
+  scroll-margin-top: 90px;
+}
+
+.panel h2 {
+  margin: 0;
+  padding: 12px 18px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: rgb(247, 244, 244);
+  background: linear-gradient(180deg, var(--purple-bright), var(--purple-mid));
+  border-bottom: 3px solid var(--gold);
+}
+
+.panel-body {
+  padding: 20px;
+}
+
+/* ==========================================================
+   PORTAL CONTENT SECTIONS
+   ========================================================== */
+
+/* Quem Sou Eu / About */
+.about-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.about-photo {
+  flex: initial;
+  width: 100%;
+  max-width: 300px;
+}
+
+.profile-photo {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px inset var(--gray-line);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.about-text p {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* Cards (Hobbies / Interesses) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+  padding: 18px;
+  text-align: center;
+  background: rgba(35, 35, 35, 0.92); /* Ajustado para painel escuro */
+  border: 2px solid var(--purple-bright);
+  box-shadow: 2px 2px 0 var(--gray-line);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-dark);
+  box-shadow: 6px 6px 0 var(--purple-mid);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 36px;
+}
+
+.hobby-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--purple-light);
+}
+.tag-list{
+align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: var(--purple-bright);
+  font-size: 15px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--ink-secondary); /* Cinza claro para leitura no escuro */
+  font-size: 12px;
+}
+
+/* Skills */
+.skill-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 50px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.skill-name {
+  font-weight: bold;
+  color: var(--purple-bright);
+}
+
+.skill-bar {
+  height: 16px;
+  overflow: hidden;
+  border: 2px inset var(--gray-line);
+  background: var(--gray-bg);
+}
+
+.skill-fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--gold),
+    var(--gold) 8px,
+    var(--gold-dark) 8px,
+    var(--gold-dark) 16px
+  );
+}
+
+.skill-pct {
+  text-align: right;
+  font-family: "Courier New", monospace;
+}
+
+/* Projetos */
+.proj-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 0;
+  margin: 0;
+}
+
+.proj-list li {
+  list-style: none;
+
+  width: 260px;
+  box-sizing: border-box;
+
+  padding: 18px;
+  text-align: center;
+
+  background: rgba(35, 35, 35, 0.95);
+  border: 2px solid var(--gray-line);
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.proj-list li:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple-mid);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.proj-list strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--purple-bright);
+  font-size: 15px;
+}
+
+
+/* Contato Portal */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.contact-links a {
+  font-weight: bold;
+  color: var(--purple-light);
+  transition: color 0.25s;
+}
+
+.contact-links a:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================
+   RESUME CONTENT SECTIONS
+   ========================================================== */
+
+/* Timeline (Formação & Experiência) */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-item {
+  padding: 16px 18px;
+  background: rgba(35, 35, 35, 0.95); /* Ajustado para painel escuro */
+  border: 2px solid var(--gray-line);
+  border-left: 6px solid var(--purple-mid);
+}
+
+.timeline-item h3 {
+  margin: 0 0 4px;
+  color: var(--purple-bright);
+  font-size: 14px;
+}
+
+.timeline-item .badge {
+  font-size: 50px;
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 10px;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--purple-deep);
+  background: var(--gold);
+  border: 1px solid var(--gold-dark);
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-secondary); /* Cinza claro para leitura no escuro */
+}
+
+/* Badges / Tags (Habilidades & Idiomas) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  padding: 6px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--purple-deep);
+  background: var(--purple-pale);
+  border: 2px inset var(--gray-line);
+}
+
+/* Grid de Contato / Dados Pessoais */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.contact-item {
+  padding: 14px;
+  background: rgba(35, 35, 35, 0.95); /* Ajustado para painel escuro */
+  border: 2px solid var(--purple-bright);
+}
+
+.contact-item span {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  color: var(--purple-light);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.contact-item strong {
+  font-size: 13px;
+  color: var(--gold);
+}
+
+/* ==========================================================
+   FOOTER & NAVIGATION FOOTER
+   ========================================================== */
+footer {
+  padding: 22px;
+  text-align: center;
+  background: rgba(112, 48, 160, 0.9); /* Deep purple com opacidade */
+  border-top: 4px solid var(--gold);
+  color: var(--purple-pale);
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.footer-nav a {
+  color: var(--purple-light);
+  transition: color 0.25s;
+}
+
+.footer-nav a:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================
+   UTILITIES & INTERACTIVE ELEMENTS
+   ========================================================== */
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  border: 2px outset var(--purple-light);
+  background: var(--purple-strong);
+  color: var(--gold);
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  background: var(--purple-mid);
+}
+
+.back-to-top.show {
+  display: block;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================== */
+
+/* Telas de Médio Porte (Tablets e afins) */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .about-photo {
+    flex: initial;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .skill-row {
+    grid-template-columns: 90px 1fr 45px;
+  }
+}
+
+/* Telas Pequenas (Celulares) */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .logo-title {
+    font-size: 28px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav a {
+    justify-content: center;
+    border-right: none;
+    border-bottom: 1px solid var(--purple-light);
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .proj-list {
+    flex-direction: column;
+  }
+
+  .contact-links {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+  }
+}
+
+/* Impressão (Otimizada para não imprimir o fundo escuro) */
+@media print {
+  .video-background,
+  .info-strip,
+  header nav,
+  .back-link,
+  .resume-actions,
+  .back-to-top {
+    display: none !important;
+  }
+
+  body.resume-body {
+    background: white !important;
+    color: #111111 !important;
+  }
+
+  .panel {
+    background: white !important;
+    color: #111111 !important;
+    border-color: #333333 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .panel h2 {
+    background: #f0f0f0 !important;
+    color: #111111 !important;
+    border-bottom: 2px solid #333333 !important;
+  }
+
+  .timeline-item,
+  .contact-item,
+  .proj-list li {
+    background: white !important;
+    color: #111111 !important;
+    border: 1px solid #cccccc !important;
+  }
+
+  .timeline-item h3,
+  .proj-list strong,
+  .contact-item strong {
+    color: #111111 !important;
+  }
+
+  .timeline-item p,
+  .card p {
+    color: #444444 !important;
+  }
+
+  .tag {
+    background: #f0f0f0 !important;
+    color: #111111 !important;
+    border: 1px solid #cccccc !important;
+  }
+}

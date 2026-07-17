@@ -493,6 +493,7 @@ main {
 }
 
 .card {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   flex: 1;
   min-width: 220px;
   padding: 18px;
@@ -527,8 +528,8 @@ main {
   border-radius: 50%;
   border: 3px solid var(--purple-light);
 }
-.tag-list{
-align-items: center;
+.tag-list {
+  align-items: center;
   justify-content: center;
   gap: 6px;
   margin-top: 10px;
@@ -623,7 +624,6 @@ align-items: center;
   color: var(--purple-bright);
   font-size: 15px;
 }
-
 
 /* Contato Portal */
 .contact-links {
@@ -846,8 +846,7 @@ footer {
   }
 
   .cards {
-    flex-direction: column;
-  }
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))  }
 
   .proj-list {
     flex-direction: column;
